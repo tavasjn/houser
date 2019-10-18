@@ -18,9 +18,6 @@ class Wizard extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.getHouses()
-    // }
 
     handleInput = e => {
         let { name, value } = e.target;

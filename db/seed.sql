@@ -7,7 +7,6 @@ create table houser(
     zipcode integer
 )
 
-
 -- create table houser(
 --     id serial primary key,
 --     name varchar(50),
@@ -17,10 +16,8 @@ create table houser(
 --     zipcode integer
 -- )
 
-
 -- alter table houser
 -- add column image text
-
 
 -- alter table houser
 -- add column monthly_mortgage integer
