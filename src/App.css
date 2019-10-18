@@ -109,3 +109,9 @@ Dashboard page
   justify-content: space-around;
   align-items: center;
 }
+
+.housing-display{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7%;
+}

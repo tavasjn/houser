@@ -7,10 +7,10 @@ import axios from 'axios';
 
 class Dashboard extends Component {
 
-    constructor(){
+    constructor() {
         super();
 
-        this.state={
+        this.state = {
             houses: [],
         }
     }
@@ -19,15 +19,21 @@ class Dashboard extends Component {
         axios.get('/api/houses').then(res => this.setState({
             houses: res.data
         }))
-        .catch(err => console.log('The get is not working', err))
+            .catch(err => console.log('The get is not working', err))
     }
 
-    deleteHouse = () => {
-
+    deleteHouse = (id) => {
+        axios.delete(`/api/houses/${id}`).then(res => {
+            this.setState({
+                houses: res.data
+            })
+        })
     }
 
 
     render() {
+        console.log(this.state)
+        let {houses} = this.state;
         return (
             <div className='dashboard-page'>
                 <div className='sidebar'>
@@ -38,7 +44,10 @@ class Dashboard extends Component {
                         <div>Dashboard</div>
                         <Link to='/wizard'><button>Add New Property</button></Link>
                     </div>
-                    <House />
+                    {houses.map((houses, index) => (
+                        <House deleteHouse={this.deleteHouse}
+                            houses={houses} index={index}/>
+                    ))}
                 </div>
                 <div className='sidebar'>
 
