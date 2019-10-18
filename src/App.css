@@ -1,22 +1,111 @@
-.App {
-  text-align: center;
+.header{
+  width: 100%;
+  height: 60px;
+  background-color: #519872;
 }
 
-.App-logo {
-  height: 40vmin;
+.navbar{
+  display: flex;
+  margin-left: 25%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo{
+  color: white;
+  font-size: 40px;
+}
+
+.title{
+  color: white;
+  font-size: 40px;
+  margin-left: 20px;
+}
+
+.wizard-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sidebar{
+  height: 100vh;
+  width: 25vw;
+  background-color: #afd4c0;
+  /* background-color: blue; */
+}
+
+.middlebar{
+  background-color: #e5f4ec;
+  height: 100vh;
+  width: 50%;
+}
+
+.middle-content{
+  width: 50vw;
+}
+
+.wizard-header{
+  font-size: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+}
+
+.input-boxes-wizard{
+  height: 55px;
+  margin-left: 45px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-right: 25%;
 }
 
-.App-link {
-  color: #09d3ac;
+.input-boxes-wizard-2 {
+  height: 55px;
+  margin-left: 45px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 65%;
+}
+
+.city-state-zip{
+  height: 55px;
+  margin-left: 45px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.column-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.complete-button{
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* 
+Dashboard page
+
+*/
+
+
+.dashboard-page{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dashboard-header{
+  font-size: 30px;
+  width: 50vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
