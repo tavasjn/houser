@@ -8,7 +8,7 @@ class Header extends Component {
         return (
             <div className='header'>
                 <div className='navbar'>
-                    <div className='logo'><img src={Logo}/></div>
+                    <div className='logo'><img src={Logo} alt=''/></div>
                     <div className='title'>Houser</div>
                 </div>
             </div>

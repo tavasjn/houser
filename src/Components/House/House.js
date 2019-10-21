@@ -8,6 +8,9 @@ class House extends Component {
         console.log(houses)
         return (
             <div className='housing-display'>
+                <div className='house-image'>
+                    {houses.image}
+                </div>
                 <div>
                     <div>Property Name: {houses.name}</div>
                     <div>Address: {houses.address}</div>
@@ -15,7 +18,11 @@ class House extends Component {
                     <div>State: {houses.state}</div>
                     <div>Zip: {houses.zipcode}</div>
                 </div>
-                <div><button onClick={() => deleteHouse(houses.id)}><img src={Delete} /></button></div>
+                <div>
+                    <div>Monthly Mortgage: {houses.mortgage}</div>
+                    <div>Desired Rent: {houses.rent}</div>
+                </div>
+                <div><button onClick={() => deleteHouse(houses.id)}><img src={Delete} alt=''/></button></div>
             </div>
         )
     }

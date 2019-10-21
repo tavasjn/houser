@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import House from '../House/House';
 import axios from 'axios';
+// import store from '../../ducks/store';
 
 
 class Dashboard extends Component {
@@ -42,7 +43,7 @@ class Dashboard extends Component {
                 <div className='middle-bar'>
                     <div className='dashboard-header'>
                         <div>Dashboard</div>
-                        <Link to='/wizard'><button>Add New Property</button></Link>
+                        <Link to='/wizard/step1'><button>Add New Property</button></Link>
                     </div>
                     {houses.map((houses, index) => (
                         <House deleteHouse={this.deleteHouse}
