@@ -9,7 +9,7 @@ class House extends Component {
         return (
             <div className='housing-display'>
                 <div className='house-image'>
-                    {houses.image}
+                    <img src={houses.image} alt='' className='image'/>
                 </div>
                 <div>
                     <div>Property Name: {houses.name}</div>

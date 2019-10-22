@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import store from '../../ducks/store';
+// import store from '../../ducks/store';
 // import axios from 'axios';
+import {saveStep2} from '../../ducks/reducer';
+import { connect } from 'react-redux';
 
 
 
 class Step2 extends Component {
 
-    constructor() {
-        super();
-
-        const reduxState = store.getState();
+    constructor(props) {
+        super(props);
 
         this.state = {
             houses: [],
-            name: reduxState.name,
-            address: reduxState.address,
-            city: reduxState.city,
-            state: reduxState.state,
-            zipcode: reduxState.zipcode,
-            image: reduxState.image,
-            mortgage: reduxState.mortgage,
-            rent: reduxState.rent
+            name: this.props.reducer.name,
+            address: this.props.reducer.address,
+            city: this.props.reducer.city,
+            state: this.props.reducer.state,
+            zipcode: this.props.reducer.zipcode,
+            image: this.props.reducer.image,
+            mortgage: this.props.reducer.mortgage,
+            rent: this.props.reducer.rent
         }
     }
 
@@ -34,6 +34,7 @@ class Step2 extends Component {
 
     render() {
         let { image } = this.state;
+        console.log(this.props)
         return (
             <div className='wizard-page'>
                 <div className='sidebar'></div>
@@ -48,7 +49,14 @@ class Step2 extends Component {
                                 <Link to='/wizard/step1'><button className='previous-next'>Previous Step</button></Link>
                             </div>
                             <div>
-                                <Link to='/wizard/step3'><button className='previous-next'>Next</button></Link>
+                                <button className='previous-next'
+                                    onClick= {() => {
+                                        this.props.saveStep2(
+                                            image
+                                        )
+                                        this.props.history.push('/wizard/step3')
+                                    }}
+                                >Next</button>
                             </div>
                         </div>
                     </div>
@@ -59,5 +67,10 @@ class Step2 extends Component {
     }
 }
 
+function step2 (state) {
+    return {
+        reducer: state.reducer
+    }
+}
 
-export default Step2;
+export default connect(step2, {saveStep2}) (Step2)

@@ -158,6 +158,14 @@ Dashboard page
 }
 
 .house-image{
-  height: 50px;
-  width: 50px;
+  height: 150px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  height: 140px;
+  width: 165px;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import store from '../../ducks/store';
+// import { Link } from 'react-router-dom';
+// import store from '../../ducks/store';
 import {saveStep1} from '../../ducks/reducer';
 import { connect } from 'react-redux';
 

@@ -35,7 +35,32 @@ export const saveStep1 = (
     }
 }
 
-// export const 
+export const saveStep2 = (
+    image
+ ) => {
+    console.log(image)
+    return {
+        type: UPDATE_STEP_TWO,
+        payload: [
+            image
+        ]
+    }
+}
+
+export const saveStep3 = (
+    mortgage,
+    rent
+) => {
+    console.log(mortgage)
+    console.log(rent)
+    return {
+        type: UPDATE_STEP_THREE,
+        payload: [
+            mortgage,
+            rent
+        ]
+    }
+}
 
 
 
@@ -45,6 +70,10 @@ export default function (state = intialState, action){
     switch(type) {
         case UPDATE_STEP_ONE:
             return{...state, name: payload[0], address: payload[1], city: payload[2], state: payload[3], zipcode: payload[4]}
+        case UPDATE_STEP_TWO:
+            return{...state, image: payload[0]}
+        case UPDATE_STEP_THREE:
+            return{...state, mortgage: payload[0], rent: payload[1]}
         default:
             return state;
     }

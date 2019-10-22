@@ -18,7 +18,7 @@ app.use(express.json());
 // EndPoints //
 
 app.get('/api/houses', ctrl.getHouses);
-app.post('/api/house', ctrl.addHouse);
+app.post('/api/houses', ctrl.addHouse);
 app.delete('/api/houses/:id', ctrl.deleteHouse);
 
 

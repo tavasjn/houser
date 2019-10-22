@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import store from '../../ducks/store';
+// import { Link } from 'react-router-dom';
+// import store from '../../ducks/store';
 import axios from 'axios';
+import {saveStep3} from '../../ducks/reducer';
+import { connect } from 'react-redux';
 
 
 
 class Step3 extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
-        const reduxState = store.getState();
 
         this.state = {
             houses: [],
-            name: reduxState.name,
-            address: reduxState.address,
-            city: reduxState.city,
-            state: reduxState.state,
-            zipcode: reduxState.zipcode,
-            image: reduxState.image,
-            mortgage: reduxState.mortgage,
-            rent: reduxState.rent
+            name: this.props.reducer.name,
+            address: this.props.reducer.address,
+            city: this.props.reducer.city,
+            state: this.props.reducer.state,
+            zipcode: this.props.reducer.zipcode,
+            image: this.props.reducer.image,
+            mortgage: this.props.reducer.mortgage,
+            rent: this.props.reducer.rent
         }
     }
 
@@ -35,7 +36,7 @@ class Step3 extends Component {
     addHouse = () => {
         let { name, address, city, state, zipcode, image, mortgage, rent } = this.state;
 
-        axios.post('/api/house', { name, address, city, state, zipcode, image, mortgage, rent }).then(res => this.setState({
+        axios.post('/api/houses', { name, address, city, state, zipcode, image, mortgage, rent }).then(res => this.setState({
             houses: res.data,
             name: '',
             address: '',
@@ -57,6 +58,7 @@ class Step3 extends Component {
 
     render() {
         let { mortgage, rent } = this.state;
+        console.log(this.props)
         return (
             <div>
                 <div className='input-boxes-wizard-step3'>
@@ -71,7 +73,7 @@ class Step3 extends Component {
                 </div>
                 <div className='next-step-buttons'>
                     <div>
-                        <Link to='/wizard/step2'><button className='previous-next'>Previous Step</button></Link>
+                        <button className='previous-next'>Previous Step</button>
                     </div>
                     <div>
                         <button className='complete' onClick={() => this.addHouse()}>Complete</button>
@@ -83,4 +85,10 @@ class Step3 extends Component {
 }
 
 
-export default Step3;
+function step3 (state) {
+    return {
+        reducer: state.reducer
+    }
+}
+
+export default connect(step3, {saveStep3}) (Step3)
